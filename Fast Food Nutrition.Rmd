@@ -17,7 +17,6 @@ Index top 20 and then pie chart to see which restaurant contributes
 
 4. Index top 3-5 items of each category in each restaurant
 
-5. 
 
 ```{r}
 
