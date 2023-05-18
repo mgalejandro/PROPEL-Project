@@ -3,5 +3,24 @@ title: "Fast_food_nutrition"
 output: html_notebook
 ---
 
-Question: How does the nutritonal content of fast food items differ between franchises?
+Question: How does the nutritional content of fast food items differ between franchises?
+
+1. Cleaning step isolate: Calories, Saturated Fats, Sodium, and Sugar
+Rationale:  Labels that have adverse health affects (but we subbed sugar since there is no added sugar)
+Cite: https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of.
+
+2. Boxplots of each of 4 categories
+
+Index top 20 and then pie chart to see which restaurant contributes
+
+3. Scatterplot (association of calories to the other categories)
+
+4. Index top 3-5 items of each category in each restaurant
+
+5. 
+
+```{r}
+
+```
+
 
