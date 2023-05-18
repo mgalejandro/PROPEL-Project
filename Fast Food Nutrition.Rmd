@@ -20,7 +20,7 @@ Index top 20 and then pie chart to see which restaurant contributes
 5. 
 
 ```{r}
-
+library(tidyverse)
 ```
 
 

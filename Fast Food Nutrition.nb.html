@@ -1770,11 +1770,25 @@ categories)</p></li>
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<pre class="r"><code>library(tidyverse)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoi4pSA4pSAIEF0dGFjaGluZyBjb3JlIHRpZHl2ZXJzZSBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDIuMC4wIOKUgOKUgFxu4pyUIGRwbHlyICAgICAxLjEuMiAgICAg4pyUIHJlYWRyICAgICAyLjEuNFxu4pyUIGZvcmNhdHMgICAxLjAuMCAgICAg4pyUIHN0cmluZ3IgICAxLjUuMFxu4pyUIGdncGxvdDIgICAzLjQuMiAgICAg4pyUIHRpYmJsZSAgICAzLjIuMVxu4pyUIGx1YnJpZGF0ZSAxLjkuMiAgICAg4pyUIHRpZHlyICAgICAxLjMuMFxu4pyUIHB1cnJyICAgICAxLjAuMSAgICAg4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG7ihLkgVXNlIHRoZSBcdTAwMWJdODs7aHR0cDovL2NvbmZsaWN0ZWQuci1saWIub3JnL1x1MDAwN2NvbmZsaWN0ZWQgcGFja2FnZVx1MDAxYl04OztcdTAwMDcgdG8gZm9yY2UgYWxsIGNvbmZsaWN0cyB0byBiZWNvbWUgZXJyb3JzXG4ifQ== -->
+<pre><code>── Attaching core tidyverse packages ──────────────────────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     ── Conflicts ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmFzdF9mb29kX251dHJpdGlvbiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKUXVlc3Rpb246IEhvdyBkb2VzIHRoZSBudXRyaXRpb25hbCBjb250ZW50IG9mIGZhc3QgZm9vZCBpdGVtcyBkaWZmZXIgYmV0d2VlbiBmcmFuY2hpc2VzPwoKMS4gQ2xlYW5pbmcgc3RlcCBpc29sYXRlOiBDYWxvcmllcywgU2F0dXJhdGVkIEZhdHMsIFNvZGl1bSwgYW5kIFN1Z2FyClJhdGlvbmFsZTogIExhYmVscyB0aGF0IGhhdmUgYWR2ZXJzZSBoZWFsdGggYWZmZWN0cyAoYnV0IHdlIHN1YmJlZCBzdWdhciBzaW5jZSB0aGVyZSBpcyBubyBhZGRlZCBzdWdhcikKQ2l0ZTogaHR0cHM6Ly93d3cuZmRhLmdvdi9mb29kL25ldy1udXRyaXRpb24tZmFjdHMtbGFiZWwvaG93LXVuZGVyc3RhbmQtYW5kLXVzZS1udXRyaXRpb24tZmFjdHMtbGFiZWwjOn46dGV4dD1TYXR1cmF0ZWQlMjBmYXQlMkMlMjBzb2RpdW0lMkMlMjBhbmQlMjBhZGRlZCUyMHN1Z2FycyUyMGFyZSUyMG51dHJpZW50cyUyMGxpc3RlZCUyMG9uLG51dHJpZW50cyUyMHRvJTIwZ2V0JTIwbGVzcyUyMG9mLgoKMi4gQm94cGxvdHMgb2YgZWFjaCBvZiA0IGNhdGVnb3JpZXMKCkluZGV4IHRvcCAyMCBhbmQgdGhlbiBwaWUgY2hhcnQgdG8gc2VlIHdoaWNoIHJlc3RhdXJhbnQgY29udHJpYnV0ZXMKCjMuIFNjYXR0ZXJwbG90IChhc3NvY2lhdGlvbiBvZiBjYWxvcmllcyB0byB0aGUgb3RoZXIgY2F0ZWdvcmllcykKCjQuIEluZGV4IHRvcCAzLTUgaXRlbXMgb2YgZWFjaCBjYXRlZ29yeSBpbiBlYWNoIHJlc3RhdXJhbnQKCjUuIAoKYGBge3J9CgpgYGAKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmFzdF9mb29kX251dHJpdGlvbiIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKUXVlc3Rpb246IEhvdyBkb2VzIHRoZSBudXRyaXRpb25hbCBjb250ZW50IG9mIGZhc3QgZm9vZCBpdGVtcyBkaWZmZXIgYmV0d2VlbiBmcmFuY2hpc2VzPwoKMS4gQ2xlYW5pbmcgc3RlcCBpc29sYXRlOiBDYWxvcmllcywgU2F0dXJhdGVkIEZhdHMsIFNvZGl1bSwgYW5kIFN1Z2FyClJhdGlvbmFsZTogIExhYmVscyB0aGF0IGhhdmUgYWR2ZXJzZSBoZWFsdGggYWZmZWN0cyAoYnV0IHdlIHN1YmJlZCBzdWdhciBzaW5jZSB0aGVyZSBpcyBubyBhZGRlZCBzdWdhcikKQ2l0ZTogaHR0cHM6Ly93d3cuZmRhLmdvdi9mb29kL25ldy1udXRyaXRpb24tZmFjdHMtbGFiZWwvaG93LXVuZGVyc3RhbmQtYW5kLXVzZS1udXRyaXRpb24tZmFjdHMtbGFiZWwjOn46dGV4dD1TYXR1cmF0ZWQlMjBmYXQlMkMlMjBzb2RpdW0lMkMlMjBhbmQlMjBhZGRlZCUyMHN1Z2FycyUyMGFyZSUyMG51dHJpZW50cyUyMGxpc3RlZCUyMG9uLG51dHJpZW50cyUyMHRvJTIwZ2V0JTIwbGVzcyUyMG9mLgoKMi4gQm94cGxvdHMgb2YgZWFjaCBvZiA0IGNhdGVnb3JpZXMKCkluZGV4IHRvcCAyMCBhbmQgdGhlbiBwaWUgY2hhcnQgdG8gc2VlIHdoaWNoIHJlc3RhdXJhbnQgY29udHJpYnV0ZXMKCjMuIFNjYXR0ZXJwbG90IChhc3NvY2lhdGlvbiBvZiBjYWxvcmllcyB0byB0aGUgb3RoZXIgY2F0ZWdvcmllcykKCjQuIEluZGV4IHRvcCAzLTUgaXRlbXMgb2YgZWFjaCBjYXRlZ29yeSBpbiBlYWNoIHJlc3RhdXJhbnQKCjUuIAoKYGBge3J9CmxpYnJhcnkodGlkeXZlcnNlKQpgYGAKCgo=</div>
 
 
 
