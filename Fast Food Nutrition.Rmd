@@ -5,21 +5,121 @@ output: html_notebook
 
 Question: How does the nutritional content of fast food items differ between franchises?
 
-1. Cleaning step isolate: Calories, Saturated Fats, Sodium, and Sugar
-Rationale:  Labels that have adverse health affects (but we subbed sugar since there is no added sugar)
-Cite: https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of.
+```{r}
+#Load Tidyverse and fastfood.csv file
 
-2. Boxplots of each of 4 categories
+library(tidyverse)
+fastfood_df <- read_csv("fastfood.csv")
 
-Index top 20 and then pie chart to see which restaurant contributes
+#OPTIONAL: Load unfiltered table to confirm
+#(remove) fastfood_df
 
-3. Scatterplot (association of calories to the other categories)
-
-4. Index top 3-5 items of each category in each restaurant
-
+```
 
 ```{r}
-library(tidyverse)
+#Cleaning step isolate: Calories, Saturated Fats, Sodium, and Sugar
+#Rationale:  Labels that have adverse health affects (but we subbed sugar since there is no added sugar)
+#Cite: https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of.
+
+fastfood_df %>% select(1, 2, 3, 6, 9, 12)
+
 ```
+
+```{r}
+#Bloxplots of the categories and descriptive statistics
+#QUESTION: Is there a way to combine these?
+
+#calories
+ggplot(fastfood_df, aes(x = restaurant, y = calories)) +
+  geom_boxplot() +
+  labs(title = "Calories of Different Restaurants",
+       x = "Restaurant",
+       y = "Calories")
+
+#sat_fat
+ggplot(fastfood_df, aes(x = restaurant, y = sat_fat)) +
+  geom_boxplot() +
+  labs(title = "Saturated Fats of Different Restaurants",
+       x = "Restaurant",
+       y = "Saturated Fats")
+
+#sodium
+ggplot(fastfood_df, aes(x = restaurant, y = sodium)) +
+  geom_boxplot() +
+  labs(title = "Sodium of Different Restaurants",
+       x = "Restaurant",
+       y = "Sodium")
+
+#sugar
+ggplot(fastfood_df, aes(x = restaurant, y = sugar)) +
+  geom_boxplot() +
+  labs(title = "Sugar of Different Restaurants",
+       x = "Restaurant",
+       y = "Sugar")
+```
+
+```{r}
+#Descriptive statistics
+#QUESTION: How do we flip these axes?
+
+fastfood_stats <- fastfood_df %>%
+  group_by(restaurant) %>%
+  summarise(
+    Mean_calories = mean(calories),
+    SD_calories = sd(calories),
+    Min_calories = min(calories),
+    Max_calories = max(calories),
+    Mean_sat_fat = mean(sat_fat),
+    SD_sat_fat = sd(sat_fat),
+    Min_sat_fat = min(sat_fat),
+    Max_sat_fat = max(sat_fat),
+    Mean_sodium = mean(sodium),
+    SD_sodium = sd(sodium),
+    Min_sodium = min(sodium),
+    Max_sodium = max(sodium),
+    Mean_sugar = mean(sugar),
+    SD_sugar = sd(sugar),
+    Min_sugar = min(sugar),
+    Max_sugar = max(sugar),
+  )
+
+print(fastfood_stats)
+```
+
+```{r}
+
+#Scatter plot of Calories vs other variables
+#QUESTION: HOW DO WE ADD THE VALUES OF THE TRENDLINE?
+
+#calories vs sat_fat
+ggplot(fastfood_df, aes(x = sat_fat, y = calories)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Scatter Plot of Saturated Fats vs. Calories",
+       x = "Saturated Fats",
+       y = "Calories")
+
+#calories vs sodium
+ggplot(fastfood_df, aes(x = sodium, y = calories)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Scatter Plot of Sodium vs. Calories",
+       x = "Sodium",
+       y = "Calories")
+
+#calories vs sugar
+ggplot(fastfood_df, aes(x = sugar, y = calories)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Scatter Plot of Sugar vs. Calories",
+       x = "Sugar",
+       y = "Calories")
+```
+
+
+Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.
+
+Index top 3-5 items of each category in each restaurant
+
 
 
