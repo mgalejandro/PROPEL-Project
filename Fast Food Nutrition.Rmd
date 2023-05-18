@@ -3,5 +3,5 @@ title: "Fast_food_nutrition"
 output: html_notebook
 ---
 
-Question: What
+Question: How does the nutritonal content of fast food items differ between franchises?
 
