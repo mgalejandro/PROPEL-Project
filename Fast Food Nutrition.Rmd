@@ -27,7 +27,6 @@ fastfood_df %>% select(1, 2, 3, 6, 9, 12)
 
 ```{r}
 #Boxplots of the categories and descriptive statistics
-#QUESTION: Is there a way to combine these?
 
 #calories
 ggplot(fastfood_df, aes(x = restaurant, y = calories)) +
@@ -60,7 +59,6 @@ ggplot(fastfood_df, aes(x = restaurant, y = sugar)) +
 
 ```{r}
 #Descriptive statistics
-#QUESTION: How do we flip these axes?
 
 fastfood_stats <- fastfood_df %>%
   group_by(restaurant) %>%
