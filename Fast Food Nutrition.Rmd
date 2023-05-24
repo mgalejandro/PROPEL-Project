@@ -5,6 +5,8 @@ output: html_notebook
 
 Question: How does the nutritional content of fast food items differ between franchises?
 
+Dataset used: https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition
+
 ```{r}
 #Load Tidyverse and fastfood.csv file
 
@@ -119,7 +121,7 @@ ggplot(fastfood_df, aes(x = sugar, y = calories)) +
 Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.
 
 ```{r}
-
+#Select top 20 items in each category
 top_20_calories <- fastfood_df %>%
   arrange(desc(calories)) %>%
   slice(1:20) %>%
