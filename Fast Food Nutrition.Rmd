@@ -3,13 +3,13 @@ title: "Fast_food_nutrition"
 output: html_notebook
 ---
 
-Question: How does the nutritional content of fast food items differ between franchises?
+# **Question: How does the nutritional content of fast food items differ between franchises?**
 
-Dataset used: https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition
+**Dataset used: <https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition>**
+
+**1) Load Tidyverse and fastfood.csv file**
 
 ```{r}
-#Load Tidyverse and fastfood.csv file
-
 library(tidyverse)
 fastfood_df <- read_csv("fastfood.csv")
 
@@ -18,14 +18,18 @@ fastfood_df <- read_csv("fastfood.csv")
 
 ```
 
+**2) Clean data to isolate the following variables: Calories, Saturated Fats, Sodium, and Sugar
+Rationale: Labels that have adverse health affects (but we subbed sugar since there is no added sugar)**
+
+<https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of.>
+
 ```{r}
-#Cleaning step isolate: Calories, Saturated Fats, Sodium, and Sugar
-#Rationale:  Labels that have adverse health affects (but we subbed sugar since there is no added sugar)
-#Cite: https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of.
 
 fastfood_df %>% select(1, 2, 3, 6, 9, 12)
 
 ```
+
+**3) Create variable box plots, descriptive statistics, and scatterplots of Calories vs Variables**
 
 ```{r}
 #Boxplots of the categories and descriptive statistics
@@ -89,7 +93,6 @@ print(fastfood_stats)
 ```{r}
 
 #Scatter plot of Calories vs other variables
-#QUESTION: HOW DO WE ADD THE VALUES OF THE TRENDLINE?
 
 #calories vs sat_fat
 ggplot(fastfood_df, aes(x = sat_fat, y = calories)) +
@@ -116,7 +119,7 @@ ggplot(fastfood_df, aes(x = sugar, y = calories)) +
        y = "Calories")
 ```
 
-Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.
+**4) Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.**
 
 ```{r}
 #Select top 20 items in each category
@@ -195,7 +198,7 @@ labels <- paste(restaurant_sugar$restaurant, " (", restaurant_sugar$percentage, 
 pie(restaurant_sugar$sugar, labels = labels, col = colors, main = "Contributions of Restaurants to Sugar")
 ```
 
-Index top 3-5 items of each category in each restaurant
+**5) Index top 3-5 items of each category in each restaurant**
 
 ```{r}
 top_items_calories <- top_20_calories %>%
@@ -218,4 +221,3 @@ top_items_sugar <- top_20_sugar %>%
   select(1,2)
 print(top_items_sugar)
 ```
-
