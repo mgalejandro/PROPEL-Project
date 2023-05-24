@@ -26,7 +26,7 @@ fastfood_df %>% select(1, 2, 3, 6, 9, 12)
 ```
 
 ```{r}
-#Bloxplots of the categories and descriptive statistics
+#Boxplots of the categories and descriptive statistics
 #QUESTION: Is there a way to combine these?
 
 #calories
@@ -116,10 +116,106 @@ ggplot(fastfood_df, aes(x = sugar, y = calories)) +
        y = "Calories")
 ```
 
-
 Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.
+
+```{r}
+
+top_20_calories <- fastfood_df %>%
+  arrange(desc(calories)) %>%
+  slice(1:20) %>%
+  select(1,2,3)
+
+# Group menu items by restaurant and calculate the total calories
+restaurant_calories <- aggregate(calories ~ restaurant, data = top_20_calories, FUN = sum)
+
+# Calculate the total calories
+total_calories <- sum(restaurant_calories$calories)
+
+# Calculate the percentage of calories for each restaurant
+restaurant_calories$percentage <- round(restaurant_calories$calories / total_calories * 100, 2)
+
+# Create the pie chart with percentages
+colors <- c("orange", "yellow", "red", "blue", "green")
+labels <- paste(restaurant_calories$restaurant, " (", restaurant_calories$percentage, "%)", sep = "")
+
+pie(restaurant_calories$calories, labels = labels, col = colors, main = "Contributions of Restaurants to Total Calories")
+
+
+
+top_20_satfats <- fastfood_df %>%
+  arrange(desc(sat_fat)) %>%
+  slice(1:20) %>%
+  select(1,2,6)
+
+restaurant_satfats <- aggregate(sat_fat ~ restaurant, data = top_20_satfats, FUN = sum)
+
+total_satfats <- sum(restaurant_satfats$sat_fat)
+
+restaurant_satfats$percentage <- round(restaurant_satfats$sat_fat / total_satfats * 100, 2)
+
+colors <- c("orange", "yellow", "red", "blue")
+labels <- paste(restaurant_satfats$restaurant, " (", restaurant_satfats$percentage, "%)", sep = "")
+
+pie(restaurant_satfats$sat_fat, labels = labels, col = colors, main = "Contributions of Restaurants to Saturated Fat")
+
+
+
+top_20_sodium <- fastfood_df %>%
+  arrange(desc(sodium)) %>%
+  slice(1:20) %>%
+  select(1,2,9)
+
+restaurant_sodium <- aggregate(sodium ~ restaurant, data = top_20_sodium, FUN = sum)
+
+total_sodium <- sum(restaurant_sodium$sodium)
+
+restaurant_sodium$percentage <- round(restaurant_sodium$sodium / total_sodium * 100, 2)
+
+colors <- c("pink", "purple", "yellow", "red", "blue", "green")
+labels <- paste(restaurant_sodium$restaurant, " (", restaurant_sodium$percentage, "%)", sep = "")
+
+pie(restaurant_sodium$sodium, labels = labels, col = colors, main = "Contributions of Restaurants to Sodium")
+
+
+
+top_20_sugar <- fastfood_df %>%
+  arrange(desc(sugar)) %>%
+  slice(1:20) %>%
+  select(1,2,12)
+
+restaurant_sugar <- aggregate(sugar ~ restaurant, data = top_20_sugar, FUN = sum)
+
+total_sugar <- sum(restaurant_sugar$sugar)
+
+restaurant_sugar$percentage <- round(restaurant_sugar$sugar / total_sugar * 100, 2)
+
+colors <- c("pink", "orange", "yellow", "red", "green")
+labels <- paste(restaurant_sugar$restaurant, " (", restaurant_sugar$percentage, "%)", sep = "")
+
+pie(restaurant_sugar$sugar, labels = labels, col = colors, main = "Contributions of Restaurants to Sugar")
+```
 
 Index top 3-5 items of each category in each restaurant
 
+```{r}
+top_items_calories <- top_20_calories %>%
+  slice(1:3) %>%
+  select(1,2)
+print(top_items_calories)
 
+top_items_satfats <- top_20_satfats %>%
+  slice(1:3) %>%
+  select(1,2)
+print(top_items_satfats)
+
+top_items_sodium <- top_20_sodium %>%
+  slice(1:3) %>%
+  select(1,2)
+print(top_items_sodium)
+
+top_items_sugar <- top_20_sugar %>%
+  slice(1:3) %>%
+  select(1,2)
+print(top_items_sugar)
+```
 
