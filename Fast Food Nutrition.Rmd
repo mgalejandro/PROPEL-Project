@@ -12,10 +12,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 fastfood_df <- read_csv("fastfood.csv")
-<<<<<<< HEAD
-=======
 
->>>>>>> 3cc904d544e70d7fb116e53e68e2ef25e441b8c4
 ```
 
 **2) Clean data to isolate the following variables: Calories, Saturated Fats, Sodium, and Sugar
@@ -89,6 +86,10 @@ fastfood_stats <- fastfood_df %>%
 print(fastfood_stats)
 ```
 
+Answer:
+Sonic had the highest mean calories and saturated fat.
+Mcdonalds had the highest mean sodium and mean sugar.
+
 ```{r}
 
 #Scatter plot of Calories vs other variables
@@ -117,6 +118,11 @@ ggplot(fastfood_df, aes(x = sugar, y = calories)) +
        x = "Sugar",
        y = "Calories")
 ```
+Answer:
+A positive correlation between calories and saturated fats and calories and sodium. Unsure about calories and sugar.
+
+Next step:
+Confirm this visual interpretation by finding out how to code and display the R^2 values and trendline equation. 
 
 **4) Index top 20 overall in each of the 4 categories and then pie chart to see which restaurant contributes the most.**
 
@@ -196,6 +202,11 @@ labels <- paste(restaurant_sugar$restaurant, " (", restaurant_sugar$percentage, 
 
 pie(restaurant_sugar$sugar, labels = labels, col = colors, main = "Contributions of Restaurants to Sugar")
 ```
+Answer:
+Food from Mcdonalds contributes the most total calories.
+Food from Burger King contributes the most saturated fats.
+Food from Subway contributes the most sodium.
+Food from Mcdonalds contributes the most sugar.
 
 **5) Index top 3-5 items of each category in each restaurant**
 
@@ -220,3 +231,14 @@ top_items_sugar <- top_20_sugar %>%
   select(1,2)
 print(top_items_sugar)
 ```
+Answer:
+Mcdonalds items score highest in total calories, sodium, and sugar
+Burger King score highest in total saturated fats
+
+Next steps:
+From this analysis we hope to more mindful of our fast food consumption and nutritional content. We can also gain a better understanding of the nutritional impact fast food has on our society, specifically in underresourced communities (i.e impoverished).
+
+Citations:
+https://www.kaggle.com/datasets/ulrikthygepedersen/fastfood-nutrition
+https://www.fda.gov/food/new-nutrition-facts-label/how-understand-and-use-nutrition-facts-label#:~:text=Saturated%20fat%2C%20sodium%2C%20and%20added%20sugars%20are%20nutrients%20listed%20on,nutrients%20to%20get%20less%20of
+https://r-graph-gallery.com
