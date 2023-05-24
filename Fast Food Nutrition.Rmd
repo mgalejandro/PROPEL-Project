@@ -12,10 +12,6 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 fastfood_df <- read_csv("fastfood.csv")
-
-#OPTIONAL: Load unfiltered table to confirm
-#(remove) fastfood_df
-
 ```
 
 **2) Clean data to isolate the following variables: Calories, Saturated Fats, Sodium, and Sugar
@@ -26,7 +22,6 @@ Rationale: Labels that have adverse health affects (but we subbed sugar since th
 ```{r}
 
 fastfood_df %>% select(1, 2, 3, 6, 9, 12)
-
 ```
 
 **3) Create variable box plots, descriptive statistics, and scatterplots of Calories vs Variables**
