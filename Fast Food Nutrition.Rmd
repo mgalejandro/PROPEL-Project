@@ -12,6 +12,10 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 fastfood_df <- read_csv("fastfood.csv")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3cc904d544e70d7fb116e53e68e2ef25e441b8c4
 ```
 
 **2) Clean data to isolate the following variables: Calories, Saturated Fats, Sodium, and Sugar
