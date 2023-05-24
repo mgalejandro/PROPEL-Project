@@ -2,7 +2,7 @@ Mikail Alejandro and An Tran's PROPEL project submission
 
 We used a dataset that provides a breakdown of the nutritional content of fast food items from eight different popular chains. From this data, we wanted to ask the question, how does the nutritional content of fast food items differ between franchises?
 
-First, we loaded the tidyverse package in R in order to manipulate and visualize the data. We then saw on the FDA website that Americans tend to check the total calories, saturated fat, sodium, and sugar content most often when they read nutrition labels, so we then cleaned up the data to only include those four categories (along with restaurant and menu item) using the "select" function.
+First, we loaded the tidyverse package in R in order to manipulate and visualize the data. We then saw on the FDA website that the total calories, saturated fat, sodium, and sugar content had the most adverse health effects, so we then cleaned up the data to only include those four categories (along with restaurant and menu item) using the "select" function.
 
 We then plotted this cleaned information via boxplots to see the distributions of our nutritional categories for each restaurant and to also spot any potential outliers. We used the "ggplot" and "geom_boxplot" functions. We also found the descriptive statistics for each category and restaurant using the "group_by" and "summarize" functions.
 
